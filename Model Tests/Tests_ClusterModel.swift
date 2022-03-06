@@ -96,6 +96,47 @@ class Tests_ClusterModel: XCTestCase {
 
     }
 
+    func testSmallCluster() throws {
+        let dimmension = 2
+
+        var dataCluster1: [Double] = []
+        let cluster1Size = Int.random(in: 1 ... 7)
+        for _ in 0 ..< cluster1Size {
+            dataCluster1.append(Double.random(in: -2.5 ... -0.5))
+            dataCluster1.append(Double.random(in: 1.1 ... 1.5))
+        }
+
+        var dataCluster2: [Double] = []
+        let cluster2Size = Int.random(in: 1 ... 7)
+        for _ in 0 ..< cluster2Size {
+            dataCluster2.append(Double.random(in: 3.8 ... 11.2))
+            dataCluster2.append(Double.random(in: -8.3 ... -3.2))
+        }
+
+        let combinedData = dataCluster1 + dataCluster2
+        print(combinedData)
+        let model1 = try ClusterModel(data: combinedData, dimmension: dimmension)
+        let initialCentroids = [-1.5, 1.3, 4.075, 5.75]
+
+        try model1.cluster(count: 2, initialCentroids: initialCentroids)
+
+        for index in 0 ..< cluster1Size {
+            XCTAssertEqual(model1.clusters[index], 0)
+        }
+
+        for index in 0 ..< cluster2Size {
+            XCTAssertEqual(model1.clusters[cluster1Size + index], 1)
+        }
+
+    }
+    // TODO: Test Large Cluster
+
+    // TODO: Test High Dimmensional Cluster
+
+    // TODO: Test Clustering with count: 1
+
+    // TODO: Test Clustering where each point is a centroid
+
     func testPerformanceExample() throws {
 //        // This is an example of a performance test case.
 //        self.measure {
@@ -113,9 +154,5 @@ class Tests_ClusterModel: XCTestCase {
         print("\n\n\n")
     }
 
-    func testPerformanceExample2() throws {
-        var arr: [Int] = []
-        arr.reserveCapacity(100)
-    }
-
+    // TODO: Benchmark the Clustering Algorithm
 }

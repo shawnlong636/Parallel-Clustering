@@ -22,5 +22,5 @@ func Benchmark(title: String, operation: () -> ()) -> Double {
 }
 
 enum ProjectConstants {
-    static let MAX_ITERATIONS: Int = 1_000
+    static let MAX_ITERATIONS: Int = 25
 }

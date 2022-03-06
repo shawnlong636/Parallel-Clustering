@@ -14,7 +14,7 @@ enum ClusterModelError: Error {
     case InvalidArgument(Details: String)
 }
 
-class ClusterModel {
+class ClusterModel: CustomStringConvertible {
     let dimmension: Int
     var pointCount: Int = 0
 
@@ -25,6 +25,16 @@ class ClusterModel {
     var centroids: [Double] = []
     var sets: [[[Double]]] = []
     var clusters: [Int] = []
+
+    var description: String {
+        return """
+        \(self.dimmension)-Dimmensional Cluster of \(self.pointCount) Data Points:
+        Points: \(self.points)
+        Centroids: \(self.centroids)
+        Clusters: \(self.clusters)
+        Sets: \(self.sets)
+        """
+    }
 
     init(data: [Double] = [], dimmension: Int ) throws {
 
@@ -83,40 +93,39 @@ class ClusterModel {
     /// This function initializes the centroids array using random points.
     ///
     /// - Parameter count: The number of clusters to initialize.
-    func initializeCentroids(count: Int) {
-
-        // Create unique list of points of length 'count'
-        var pointIndices: [Int] = []
-
-        var pointIndex: Int
-        while pointIndices.count < count {
-            pointIndex = Int.random(in: 0..<self.pointCount)
-            if !pointIndices.contains(pointIndex) {
-                pointIndices.append(pointIndex)
-            }
-        }
-
-        // Reserve size of the Centroids array
-        self.centroids = Array<Double>(repeating: 0.0,
-                                       count: count * self.dimmension)
-
-        // Initialize m empty arrays for each cluster, where m is the dimmension of the ClusterModel
-        self.sets = []
-        for index in 0..<count {
-            self.sets.append([])
-            for _ in 0 ..< self.dimmension {
-                self.sets[index].append([])
-            }
-        }
+    func initializeCentroids(count: Int, initialCentroids: [Double]?) {
 
         // Initialize clusters to all 0
         self.clusters = Array<Int>(repeating: 0, count: self.pointCount)
 
-        // Create the centroids
-        for (centroidIndex, pointIndex) in pointIndices.enumerated() {
-            for offset in 0..<self.dimmension {
-                self.centroids[centroidIndex * dimmension + offset] = self.points[pointIndex * dimmension + offset]
+        if initialCentroids != nil {
+            self.centroids = initialCentroids ?? []
+        }  else {
+            
+            // Reserve size of the Centroids array
+            self.centroids = Array<Double>(repeating: 0.0,
+                                        count: count * self.dimmension)
+
+
+
+            // Create unique list of points of length 'count'
+            var pointIndices: [Int] = []
+
+            var pointIndex: Int
+            while pointIndices.count < count {
+                pointIndex = Int.random(in: 0..<self.pointCount)
+                if !pointIndices.contains(pointIndex) {
+                    pointIndices.append(pointIndex)
+                }
             }
+
+            // Create the centroids
+            for (centroidIndex, pointIndex) in pointIndices.enumerated() {
+                for offset in 0..<self.dimmension {
+                    self.centroids[centroidIndex * dimmension + offset] = self.points[pointIndex * dimmension + offset]
+                }
+            }
+//            print("Initial Centroids: \(self.centroids)")
         }
 
     }
@@ -127,6 +136,15 @@ class ClusterModel {
     /// - Parameter clusterCount: The number of clusters being used for the current clustering
     func assignClusters(clusterCount: Int) throws {
 
+        // Initialize m empty arrays for each cluster, where m is the dimmension of the ClusterModel
+        self.sets = []
+        for index in 0 ..< clusterCount {
+            self.sets.append([])
+            for _ in 0 ..< self.dimmension {
+                self.sets[index].append([])
+            }
+        }
+
         for pointIndex in 0..<pointCount {
             var min_dist = Double.infinity
 
@@ -135,12 +153,13 @@ class ClusterModel {
                 if cur_dist < min_dist {
                     min_dist = cur_dist
                     self.clusters[pointIndex] = centroidIndex
-
-                    for offset in 0 ..< self.dimmension {
-                        self.sets[centroidIndex][offset].append(
-                            self.points[pointIndex * self.dimmension + offset])
-                    }
                 }
+            }
+            let closestCentroid = self.clusters[pointIndex]
+
+            for offset in 0 ..< self.dimmension {
+                self.sets[closestCentroid][offset].append(
+                    self.points[pointIndex * self.dimmension + offset])
             }
         }
     }
@@ -155,7 +174,7 @@ class ClusterModel {
         }
     }
 
-    func cluster(count: Int) throws {
+    func cluster(count: Int, initialCentroids: [Double]? = nil) throws {
 
         // Validate Input
         guard count >= 1 else {
@@ -163,11 +182,12 @@ class ClusterModel {
         }
 
         // Initialize centroids
-        initializeCentroids(count: count)
+        initializeCentroids(count: count, initialCentroids: initialCentroids)
 
         for _ in 0 ..< ProjectConstants.MAX_ITERATIONS {
             // Assign Data Points to the Nearest Centroid
             try assignClusters(clusterCount: count)
+//            print("Iteration \(index): \(self.clusters)")
 
             // Update Centroid to be the Average of each Cluster
             try updateCentroids(clusterCount: count)
