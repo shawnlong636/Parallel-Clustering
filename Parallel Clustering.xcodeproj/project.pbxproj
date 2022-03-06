@@ -64,6 +64,7 @@
 		D2B9157E27D560D2004974FE /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests iOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Tests iOS.xctest"; sourceTree = "<absolute>"; };
 		D2B9157F27D560D2004974FE /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests macOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Tests macOS.xctest"; sourceTree = "<absolute>"; };
 		D2B9158027D560D2004974FE /* Model Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Model Tests.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Model Tests.xctest"; sourceTree = "<absolute>"; };
+		D2B9158127D56647004974FE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D2C73DD427D3F93D00A03639 /* Parallel_ClusteringApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parallel_ClusteringApp.swift; sourceTree = "<group>"; };
 		D2C73DD527D3F93D00A03639 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2C73DD627D3F93F00A03639 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				D2C73EAE27D4308500A03639 /* README.md */,
+				D2B9158127D56647004974FE /* .gitignore */,
 				D2C73DD327D3F93D00A03639 /* Shared */,
 				D2C73DE227D3F93F00A03639 /* macOS */,
 				D2C73DEB27D3F93F00A03639 /* Tests iOS */,
