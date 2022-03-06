@@ -6,12 +6,12 @@
 //
 
 import Foundation
-import Benchmark
 
 enum ClusterModelError: Error {
     case InvalidInputData(Details: String)
     case PointOutOfBounds(index: Int)
     case CentroidOutOfBounds(index: Int)
+    case InvalidArgument(Details: String)
 }
 
 class ClusterModel {
@@ -66,5 +66,23 @@ class ClusterModel {
         }
 
         return total
+    }
+
+    func cluster(partitions: Int) throws {
+
+        // Validate Input
+        guard partitions >= 1 else {
+            throw ClusterModelError.InvalidArgument(Details: "Partition count must be at least 1")
+        }
+
+        // Initialize centroids
+
+        // Assign Data Points to the Nearest Centroid
+
+        // Update Centroid to be the Average of each Cluster
+
+        // Reassign Data Points Based on New Centroids
+
+        // Repeat until Max Iterations or End Condition Met
     }
 }

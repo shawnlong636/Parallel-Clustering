@@ -21,7 +21,7 @@ class Tests_ClusterModel: XCTestCase {
     func testDimmension1() throws {
 
         // Test Initializing Empty Cluster in 1-Dimmensional Space
-        var cluster1 = try ClusterModel(dimmension: 1)
+        let cluster1 = try ClusterModel(dimmension: 1)
         XCTAssertEqual(cluster1.points, [])
         XCTAssertEqual(cluster1.dimmension, 1)
 
@@ -105,7 +105,9 @@ class Tests_ClusterModel: XCTestCase {
         var arr = Array(repeating: 0.0, count: 10_000_000)
 
         printBenchmark(title: "Array Modify") {
-            
+            for index in 0..<arr.count {
+                arr[index] += 2
+            }
         }
 
         print("\n\n\n")
