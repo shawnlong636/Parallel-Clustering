@@ -9,30 +9,35 @@ import Foundation
 import Benchmark
 
 enum ClusterModelError: Error {
-    case InvalidInputData
+    case InvalidInputData(Details: String)
     case PointOutOfBounds(index: Int)
     case CentroidOutOfBounds(index: Int)
 }
 
 class ClusterModel {
     let dimmension: Int
-    var data: [Double]
+    var points: [Double] = []
     var centroids: [Double] = []
     var sets: [[Double]] = []
 
     init(data: [Double] = [], dimmension: Int ) throws {
 
-        if data != [] {
-            // Assert that the size of data array is multiple of the dimmensions
-            guard data.count % dimmension != 0 else {
-                throw ClusterModelError.InvalidInputData
-            }
+        guard dimmension >= 1 else {
+            throw ClusterModelError.InvalidInputData(Details: "Dimmension must be 1 or greater.")
         }
 
-
-
-        self.data = data
         self.dimmension = dimmension
+        try loadData(data)
+    }
+
+    func loadData(_ data: [Double]) throws {
+        if data != [] {
+            // Assert that the size of data array is multiple of the dimmensions
+            guard data.count % self.dimmension == 0 else {
+                throw ClusterModelError.InvalidInputData(Details: "Array must contain mutiples of \(dimmension).")
+            }
+        }
+        self.points = data
     }
 
     /// This function returns the Euclidean Distance Squared given two points.
@@ -44,15 +49,22 @@ class ClusterModel {
     func DistanceSquared(pointIndex: Int, centroidIndex: Int) throws -> Double {
 
         // Assert Valid Point
-        guard pointIndex >= 0 && pointIndex % dimmension == 0 && pointIndex < data.count else {
+        guard pointIndex >= 0 && pointIndex < points.count / dimmension else {
             throw ClusterModelError.PointOutOfBounds(index: pointIndex)
         }
 
         // Assert Valid Centroid
-        guard centroidIndex >= 0 && centroidIndex % dimmension == 0 && centroidIndex < centroids.count else {
+        guard centroidIndex >= 0 && centroidIndex < centroids.count / dimmension else {
             throw ClusterModelError.CentroidOutOfBounds(index: centroidIndex)
         }
 
-        return 0.0
+        var total = 0.0
+
+        for offset in 0..<dimmension {
+            total += pow(points[pointIndex * dimmension + offset]
+                         - centroids[centroidIndex * dimmension + offset], 2)
+        }
+
+        return total
     }
 }

@@ -77,6 +77,7 @@
 		D2C73E9627D4194D00A03639 /* Tests_ClusterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_ClusterModel.swift; sourceTree = "<group>"; };
 		D2C73E9B27D41A3500A03639 /* ClusterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterModel.swift; sourceTree = "<group>"; };
 		D2C73EA827D42A3300A03639 /* Benchmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benchmark.swift; sourceTree = "<group>"; };
+		D2C73EAE27D4308500A03639 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +122,7 @@
 		D2C73DCE27D3F93C00A03639 = {
 			isa = PBXGroup;
 			children = (
+				D2C73EAE27D4308500A03639 /* README.md */,
 				D2C73DD327D3F93D00A03639 /* Shared */,
 				D2C73DE227D3F93F00A03639 /* macOS */,
 				D2C73DEB27D3F93F00A03639 /* Tests iOS */,
