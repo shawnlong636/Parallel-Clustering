@@ -113,4 +113,9 @@ class Tests_ClusterModel: XCTestCase {
         print("\n\n\n")
     }
 
+    func testPerformanceExample2() throws {
+        var arr: [Int] = []
+        arr.reserveCapacity(100)
+    }
+
 }

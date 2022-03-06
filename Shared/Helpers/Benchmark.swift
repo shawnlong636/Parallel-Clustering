@@ -20,3 +20,7 @@ func Benchmark(title: String, operation: () -> ()) -> Double {
     let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
     return Double(timeElapsed)
 }
+
+enum ProjectConstants {
+    static let MAX_ITERATIONS: Int = 1_000
+}

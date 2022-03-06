@@ -16,9 +16,15 @@ enum ClusterModelError: Error {
 
 class ClusterModel {
     let dimmension: Int
+    var pointCount: Int = 0
+
+    // Contains the Raw Point Data
     var points: [Double] = []
+
+    // Data Structures Used During Clustering
     var centroids: [Double] = []
-    var sets: [[Double]] = []
+    var sets: [[[Double]]] = []
+    var clusters: [Int] = []
 
     init(data: [Double] = [], dimmension: Int ) throws {
 
@@ -38,6 +44,12 @@ class ClusterModel {
             }
         }
         self.points = data
+        self.pointCount = data.count / self.dimmension
+
+        // Reset the Clustering Data Structures since data has been changed
+        self.centroids = []
+        self.sets = []
+        self.clusters = []
     }
 
     /// This function returns the Euclidean Distance Squared given two points.
@@ -68,21 +80,98 @@ class ClusterModel {
         return total
     }
 
-    func cluster(partitions: Int) throws {
+    /// This function initializes the centroids array using random points.
+    ///
+    /// - Parameter count: The number of clusters to initialize.
+    func initializeCentroids(count: Int) {
+
+        // Create unique list of points of length 'count'
+        var pointIndices: [Int] = []
+
+        var pointIndex: Int
+        while pointIndices.count < count {
+            pointIndex = Int.random(in: 0..<self.pointCount)
+            if !pointIndices.contains(pointIndex) {
+                pointIndices.append(pointIndex)
+            }
+        }
+
+        // Reserve size of the Centroids array
+        self.centroids = Array<Double>(repeating: 0.0,
+                                       count: count * self.dimmension)
+
+        // Initialize m empty arrays for each cluster, where m is the dimmension of the ClusterModel
+        self.sets = []
+        for index in 0..<count {
+            self.sets.append([])
+            for _ in 0 ..< self.dimmension {
+                self.sets[index].append([])
+            }
+        }
+
+        // Initialize clusters to all 0
+        self.clusters = Array<Int>(repeating: 0, count: self.pointCount)
+
+        // Create the centroids
+        for (centroidIndex, pointIndex) in pointIndices.enumerated() {
+            for offset in 0..<self.dimmension {
+                self.centroids[centroidIndex * dimmension + offset] = self.points[pointIndex * dimmension + offset]
+            }
+        }
+
+    }
+
+    /// This function iterates over points in the cluster model and assigns them to a cluster
+    /// based on the nearest centroid.
+    ///
+    /// - Parameter clusterCount: The number of clusters being used for the current clustering
+    func assignClusters(clusterCount: Int) throws {
+
+        for pointIndex in 0..<pointCount {
+            var min_dist = Double.infinity
+
+            for centroidIndex in 0..<clusterCount {
+                let cur_dist = try DistanceSquared(pointIndex: pointIndex, centroidIndex: centroidIndex)
+                if cur_dist < min_dist {
+                    min_dist = cur_dist
+                    self.clusters[pointIndex] = centroidIndex
+
+                    for offset in 0 ..< self.dimmension {
+                        self.sets[centroidIndex][offset].append(
+                            self.points[pointIndex * self.dimmension + offset])
+                    }
+                }
+            }
+        }
+    }
+
+    func updateCentroids(clusterCount: Int) throws {
+        for centroidIndex in 0 ..< clusterCount {
+            let clusterSize = self.sets[centroidIndex][0].count
+            for offset in 0 ..< self.dimmension {
+                self.centroids[centroidIndex * self.dimmension + offset] =
+                    self.sets[centroidIndex][offset].reduce(0.0, +) / Double(clusterSize)
+            }
+        }
+    }
+
+    func cluster(count: Int) throws {
 
         // Validate Input
-        guard partitions >= 1 else {
-            throw ClusterModelError.InvalidArgument(Details: "Partition count must be at least 1")
+        guard count >= 1 else {
+            throw ClusterModelError.InvalidArgument(Details: "Cluster count must be at least 1")
         }
 
         // Initialize centroids
+        initializeCentroids(count: count)
 
-        // Assign Data Points to the Nearest Centroid
+        for _ in 0 ..< ProjectConstants.MAX_ITERATIONS {
+            // Assign Data Points to the Nearest Centroid
+            try assignClusters(clusterCount: count)
 
-        // Update Centroid to be the Average of each Cluster
-
-        // Reassign Data Points Based on New Centroids
-
-        // Repeat until Max Iterations or End Condition Met
+            // Update Centroid to be the Average of each Cluster
+            try updateCentroids(clusterCount: count)
+        }
     }
+
 }
