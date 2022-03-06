@@ -62,18 +62,18 @@
 		D2C73DD427D3F93D00A03639 /* Parallel_ClusteringApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parallel_ClusteringApp.swift; sourceTree = "<group>"; };
 		D2C73DD527D3F93D00A03639 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2C73DD627D3F93F00A03639 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D2C73DDB27D3F93F00A03639 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Parallel Clustering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2C73DE127D3F93F00A03639 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Parallel Clustering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2C73DDB27D3F93F00A03639 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Parallel Clustering.app"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Parallel Clustering.app"; sourceTree = "<absolute>"; };
+		D2C73DE127D3F93F00A03639 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Parallel Clustering.app"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Parallel Clustering.app"; sourceTree = "<absolute>"; };
 		D2C73DE327D3F93F00A03639 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		D2C73DE827D3F93F00A03639 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2C73DE827D3F93F00A03639 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests iOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Tests iOS.xctest"; sourceTree = "<absolute>"; };
 		D2C73DEC27D3F93F00A03639 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		D2C73DEE27D3F93F00A03639 /* Tests_iOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOSLaunchTests.swift; sourceTree = "<group>"; };
-		D2C73DF427D3F93F00A03639 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2C73DF427D3F93F00A03639 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests macOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Tests macOS.xctest"; sourceTree = "<absolute>"; };
 		D2C73DF827D3F93F00A03639 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		D2C73DFA27D3F93F00A03639 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		D2C73E1227D3F9FF00A03639 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		D2C73E1527D3FA3400A03639 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
-		D2C73E8D27D418B800A03639 /* Model Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Model Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2C73E8D27D418B800A03639 /* Model Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Model Tests.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Model Tests.xctest"; sourceTree = "<absolute>"; };
 		D2C73E9627D4194D00A03639 /* Tests_ClusterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_ClusterModel.swift; sourceTree = "<group>"; };
 		D2C73E9B27D41A3500A03639 /* ClusterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterModel.swift; sourceTree = "<group>"; };
 		D2C73EA827D42A3300A03639 /* Benchmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benchmark.swift; sourceTree = "<group>"; };
@@ -128,8 +128,6 @@
 				D2C73DEB27D3F93F00A03639 /* Tests iOS */,
 				D2C73DF727D3F93F00A03639 /* Tests macOS */,
 				D2C73E8E27D418B800A03639 /* Model Tests */,
-				D2C73DDC27D3F93F00A03639 /* Products */,
-				D2C73EA427D4254C00A03639 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,18 +141,6 @@
 				D2C73DD627D3F93F00A03639 /* Assets.xcassets */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		D2C73DDC27D3F93F00A03639 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D2C73DDB27D3F93F00A03639 /* Parallel Clustering.app */,
-				D2C73DE127D3F93F00A03639 /* Parallel Clustering.app */,
-				D2C73DE827D3F93F00A03639 /* Tests iOS.xctest */,
-				D2C73DF427D3F93F00A03639 /* Tests macOS.xctest */,
-				D2C73E8D27D418B800A03639 /* Model Tests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D2C73DE227D3F93F00A03639 /* macOS */ = {
@@ -207,13 +193,6 @@
 				D2C73E9627D4194D00A03639 /* Tests_ClusterModel.swift */,
 			);
 			path = "Model Tests";
-			sourceTree = "<group>";
-		};
-		D2C73EA427D4254C00A03639 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D2C73EA727D429FC00A03639 /* Helpers */ = {
@@ -360,7 +339,7 @@
 			mainGroup = D2C73DCE27D3F93C00A03639;
 			packageReferences = (
 			);
-			productRefGroup = D2C73DDC27D3F93F00A03639 /* Products */;
+			productRefGroup = D2C73DCE27D3F93C00A03639;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
