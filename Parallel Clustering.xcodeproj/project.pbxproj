@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2B9158327D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
+		D2B9158427D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
+		D2B9158527D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
+		D2B9158627D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
+		D2B9158727D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
 		D2C73DED27D3F93F00A03639 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73DEC27D3F93F00A03639 /* Tests_iOS.swift */; };
 		D2C73DEF27D3F93F00A03639 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73DEE27D3F93F00A03639 /* Tests_iOSLaunchTests.swift */; };
 		D2C73DF927D3F93F00A03639 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73DF827D3F93F00A03639 /* Tests_macOS.swift */; };
@@ -65,6 +70,7 @@
 		D2B9157F27D560D2004974FE /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests macOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Tests macOS.xctest"; sourceTree = "<absolute>"; };
 		D2B9158027D560D2004974FE /* Model Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Model Tests.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Model Tests.xctest"; sourceTree = "<absolute>"; };
 		D2B9158127D56647004974FE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		D2B9158227D5994F004974FE /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		D2C73DD427D3F93D00A03639 /* Parallel_ClusteringApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parallel_ClusteringApp.swift; sourceTree = "<group>"; };
 		D2C73DD527D3F93D00A03639 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2C73DD627D3F93F00A03639 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 			children = (
 				D2C73E1527D3FA3400A03639 /* ModelData.swift */,
 				D2C73E9B27D41A3500A03639 /* ClusterModel.swift */,
+				D2B9158227D5994F004974FE /* TestData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -404,6 +411,7 @@
 				D2C73DFE27D3F93F00A03639 /* ContentView.swift in Sources */,
 				D2C73E1627D3FA3400A03639 /* ModelData.swift in Sources */,
 				D2C73E1327D3F9FF00A03639 /* LogView.swift in Sources */,
+				D2B9158327D5994F004974FE /* TestData.swift in Sources */,
 				D2C73DFC27D3F93F00A03639 /* Parallel_ClusteringApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +425,7 @@
 				D2C73DFF27D3F93F00A03639 /* ContentView.swift in Sources */,
 				D2C73E1727D3FA3400A03639 /* ModelData.swift in Sources */,
 				D2C73E1427D3F9FF00A03639 /* LogView.swift in Sources */,
+				D2B9158427D5994F004974FE /* TestData.swift in Sources */,
 				D2C73DFD27D3F93F00A03639 /* Parallel_ClusteringApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +437,7 @@
 				D2C73E9E27D41A3500A03639 /* ClusterModel.swift in Sources */,
 				D2C73EAB27D42A3300A03639 /* Benchmark.swift in Sources */,
 				D2C73DEF27D3F93F00A03639 /* Tests_iOSLaunchTests.swift in Sources */,
+				D2B9158527D5994F004974FE /* TestData.swift in Sources */,
 				D2C73DED27D3F93F00A03639 /* Tests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +449,7 @@
 				D2C73E9F27D41A3500A03639 /* ClusterModel.swift in Sources */,
 				D2C73EAC27D42A3300A03639 /* Benchmark.swift in Sources */,
 				D2C73DFB27D3F93F00A03639 /* Tests_macOSLaunchTests.swift in Sources */,
+				D2B9158627D5994F004974FE /* TestData.swift in Sources */,
 				D2C73DF927D3F93F00A03639 /* Tests_macOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +461,7 @@
 				D2C73EA027D41A3500A03639 /* ClusterModel.swift in Sources */,
 				D2C73EAD27D42A3300A03639 /* Benchmark.swift in Sources */,
 				D2C73E9727D4194D00A03639 /* Tests_ClusterModel.swift in Sources */,
+				D2B9158727D5994F004974FE /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

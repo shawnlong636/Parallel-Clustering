@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import Parallel_Clustering
+import SwiftUI
 
 class Tests_ClusterModel: XCTestCase {
 
@@ -52,7 +53,9 @@ class Tests_ClusterModel: XCTestCase {
             }
         }
 
-        // TODO: Test Invalid Arguments
+        XCTAssertThrowsError(try ClusterModel(data: [0.0], dimmension: 2))
+        XCTAssertNoThrow(try ClusterModel(data: [], dimmension: 3))
+        XCTAssertThrowsError(try ClusterModel(dimmension: -1))
     }
 
     func testDimmensionN() throws {
@@ -92,7 +95,7 @@ class Tests_ClusterModel: XCTestCase {
             }
         }
 
-        // TODO: Test Invalid Arguments
+        XCTAssertThrowsError(try cluster.cluster(count: 0))
 
     }
 
@@ -129,13 +132,134 @@ class Tests_ClusterModel: XCTestCase {
         }
 
     }
-    // TODO: Test Large Cluster
 
-    // TODO: Test High Dimmensional Cluster
 
-    // TODO: Test Clustering with count: 1
+    func testLargeCluster() throws {
+        let dimmension = 3
 
-    // TODO: Test Clustering where each point is a centroid
+        // Points near (-1.5, -1, -3.5)
+        var dataCluster1: [Double] = []
+        let cluster1Size = Int.random(in: 1 ... 10_000)
+        for _ in 0 ..< cluster1Size {
+            dataCluster1.append(Double.random(in: -2.5 ... -0.5))
+            dataCluster1.append(Double.random(in: -1.5 ... -0.5))
+            dataCluster1.append(Double.random(in: -5.4 ... -1.3))
+        }
+
+        // Points near (-1.5, 10.0, -1.5)
+        var dataCluster2: [Double] = []
+        let cluster2Size = Int.random(in: 1 ... 10_000)
+        for _ in 0 ..< cluster2Size {
+            dataCluster2.append(Double.random(in: -3.1245 ... 0.0))
+            dataCluster2.append(Double.random(in: 7.123456 ... 14.987))
+            dataCluster2.append(Double.random(in: -2.9257 ... -1.0001))
+        }
+
+        // points near (3.0, -30.0, 0.0)
+        var dataCluster3: [Double] = []
+        let cluster3Size = Int.random(in: 1 ... 10_000)
+        for _ in 0 ..< cluster3Size {
+            dataCluster3.append(Double.random(in: 1.743 ... 6.543))
+            dataCluster3.append(Double.random(in: -35.1243 ... -27.00))
+            dataCluster3.append(Double.random(in: -0.2 ... 0.2))
+        }
+
+
+        // Points near (40.0, 30.0, 20.0)
+        var dataCluster4: [Double] = []
+        let cluster4Size = Int.random(in: 1 ... 10_000)
+        for _ in 0 ..< cluster4Size {
+            dataCluster4.append(Double.random(in: 35.0 ... 45.0))
+            dataCluster4.append(Double.random(in: 25.0 ... 35.00))
+            dataCluster4.append(Double.random(in: 15.0 ... 25.00))
+        }
+
+
+        let combinedData = dataCluster1 + dataCluster2 + dataCluster3 + dataCluster4
+
+
+        let model = try ClusterModel(data: combinedData, dimmension: dimmension)
+        let initialCentroids = [-1.5, -1, -3.5, -1.5, 10.0, -1.5, 3.0, -30.0, 0.0, 40.0, 30.0, 20.0]
+
+        try model.cluster(count: 4, initialCentroids: initialCentroids)
+
+        for index in 0 ..< cluster1Size {
+            XCTAssertEqual(model.clusters[index], 0)
+        }
+
+        for index in 0 ..< cluster2Size {
+            XCTAssertEqual(model.clusters[cluster1Size + index], 1)
+        }
+
+        for index in 0 ..< cluster3Size {
+            XCTAssertEqual(model.clusters[cluster1Size + cluster2Size + index], 2)
+        }
+
+        for index in 0 ..< cluster4Size {
+            XCTAssertEqual(model.clusters[cluster1Size + cluster2Size + cluster3Size + index], 3)
+        }
+    }
+
+    func testHighDimmensionalCluster() throws {
+        let dimmension = 1000
+
+
+        let cluster1Size = Int.random(in: 1_000 ... 5_000)
+        var cluster1Data: [Double] = []
+        for _ in 0 ..< cluster1Size {
+            for _ in 0 ..< dimmension {
+                cluster1Data.append(Double.random(in: -1200.0 ... -1000.0))
+            }
+        }
+
+        let cluster2Size = Int.random(in: 1000 ... 5_000)
+        var cluster2Data: [Double] = []
+        for _ in 0 ..< cluster2Size {
+            for _ in 0 ..< dimmension {
+                cluster2Data.append(Double.random(in: 2400.0 ... 2800.0))
+            }
+        }
+
+        let combinedData = cluster1Data + cluster2Data
+        let model = try ClusterModel(data: combinedData, dimmension: dimmension)
+        let initialcentroids = Array<Double>(repeating: -1100.0, count: dimmension)
+                                + Array<Double>(repeating: 2600.0, count: dimmension)
+
+
+        try model.cluster(count: 2, initialCentroids: initialcentroids)
+
+
+        for index in 0 ..< cluster1Size {
+            XCTAssertEqual(model.clusters[index], 0)
+        }
+
+        for index in 0 ..< cluster2Size {
+            XCTAssertEqual(model.clusters[cluster1Size + index], 1)
+        }
+
+    }
+
+    func testSingleCluster() throws {
+
+        for _ in 0 ..< 5 { // Repeat 5 Times since Initializer picks a random point to initialize from each time
+            let dataSet = (0 ..< 300_000).map { _ in Double.random(in: -1_000_000.00 ... 1_000_000.00)}
+            let model = try ClusterModel(data: dataSet, dimmension: 3)
+            try model.cluster(count: 1)
+
+            for cluster in model.clusters { XCTAssertEqual(cluster, 0) }
+        }
+    }
+
+    func testEachPointIsCentroid() throws {
+
+        for _ in 0 ..< 5 { // Repeat 5 Times since Initializer picks a random point to initialize from each time
+            let dataSet = (0 ..< 300_000).map { _ in Double.random(in: -1_000_000.00 ... 1_000_000.00)}
+            let model = try ClusterModel(data: dataSet, dimmension: 3)
+            try model.cluster(count: 1)
+
+            for cluster in model.clusters { XCTAssertEqual(cluster, 0) }
+        }
+    }
 
     func testPerformanceExample() throws {
 //        // This is an example of a performance test case.
@@ -143,16 +267,42 @@ class Tests_ClusterModel: XCTestCase {
 //            // Put the code you want to measure the time of here.
 //        }
         print("\n\n\n")
-        var arr = Array(repeating: 0.0, count: 10_000_000)
 
-        printBenchmark(title: "Array Modify") {
-            for index in 0..<arr.count {
-                arr[index] += 2
+        /* Create the model for testing */
+
+        let dimmension = 1000
+
+        let cluster1Size = 5_000
+        var cluster1Data: [Double] = []
+        for _ in 0 ..< cluster1Size {
+            for _ in 0 ..< dimmension {
+                cluster1Data.append(Double.random(in: -1200.0 ... -1000.0))
+            }
+        }
+
+        let cluster2Size = 5_000
+        var cluster2Data: [Double] = []
+        for _ in 0 ..< cluster2Size {
+            for _ in 0 ..< dimmension {
+                cluster2Data.append(Double.random(in: 2400.0 ... 2800.0))
+            }
+        }
+
+        let combinedData = cluster1Data + cluster2Data
+        let model = try ClusterModel(data: combinedData, dimmension: dimmension)
+        let initialcentroids = Array<Double>(repeating: -1100.0, count: dimmension)
+                                + Array<Double>(repeating: 2600.0, count: dimmension)
+
+
+        printBenchmark(title: "Naive Sequential Cluster | 10k Points, 1000-Dimmensional Space") {
+            do {
+                try model.cluster(count: 2, initialCentroids: initialcentroids)
+            }
+            catch {
+                print("Error")
             }
         }
 
         print("\n\n\n")
     }
-
-    // TODO: Benchmark the Clustering Algorithm
 }

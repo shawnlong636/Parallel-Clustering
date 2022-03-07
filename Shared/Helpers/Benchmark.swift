@@ -11,7 +11,7 @@ func printBenchmark(title: String, operation: () -> ()) {
     let startTime = CFAbsoluteTimeGetCurrent()
     operation()
     let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
-    print("Time elapsed for \(title): \(timeElapsed)")
+    print("\(title)\nTime elapsed: \(timeElapsed) seconds")
 }
 
 func Benchmark(title: String, operation: () -> ()) -> Double {
