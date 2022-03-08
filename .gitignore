@@ -25,6 +25,9 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+products/
+*.app
+*.xctest
 
 ## Obj-C/Swift specific
 *.hmap
