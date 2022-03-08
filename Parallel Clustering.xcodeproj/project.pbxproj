@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2B9158327D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
+		D2B9158427D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
+		D2B9158527D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
+		D2B9158627D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
+		D2B9158727D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
 		D2C73DED27D3F93F00A03639 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73DEC27D3F93F00A03639 /* Tests_iOS.swift */; };
 		D2C73DEF27D3F93F00A03639 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73DEE27D3F93F00A03639 /* Tests_iOSLaunchTests.swift */; };
 		D2C73DF927D3F93F00A03639 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73DF827D3F93F00A03639 /* Tests_macOS.swift */; };
@@ -21,6 +26,17 @@
 		D2C73E1427D3F9FF00A03639 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E1227D3F9FF00A03639 /* LogView.swift */; };
 		D2C73E1627D3FA3400A03639 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E1527D3FA3400A03639 /* ModelData.swift */; };
 		D2C73E1727D3FA3400A03639 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E1527D3FA3400A03639 /* ModelData.swift */; };
+		D2C73E9727D4194D00A03639 /* Tests_ClusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E9627D4194D00A03639 /* Tests_ClusterModel.swift */; };
+		D2C73E9C27D41A3500A03639 /* ClusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E9B27D41A3500A03639 /* ClusterModel.swift */; };
+		D2C73E9D27D41A3500A03639 /* ClusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E9B27D41A3500A03639 /* ClusterModel.swift */; };
+		D2C73E9E27D41A3500A03639 /* ClusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E9B27D41A3500A03639 /* ClusterModel.swift */; };
+		D2C73E9F27D41A3500A03639 /* ClusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E9B27D41A3500A03639 /* ClusterModel.swift */; };
+		D2C73EA027D41A3500A03639 /* ClusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E9B27D41A3500A03639 /* ClusterModel.swift */; };
+		D2C73EA927D42A3300A03639 /* Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73EA827D42A3300A03639 /* Benchmark.swift */; };
+		D2C73EAA27D42A3300A03639 /* Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73EA827D42A3300A03639 /* Benchmark.swift */; };
+		D2C73EAB27D42A3300A03639 /* Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73EA827D42A3300A03639 /* Benchmark.swift */; };
+		D2C73EAC27D42A3300A03639 /* Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73EA827D42A3300A03639 /* Benchmark.swift */; };
+		D2C73EAD27D42A3300A03639 /* Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73EA827D42A3300A03639 /* Benchmark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,23 +54,37 @@
 			remoteGlobalIDString = D2C73DE027D3F93F00A03639;
 			remoteInfo = "Parallel Clustering (macOS)";
 		};
+		D2C73E9127D418B800A03639 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2C73DCF27D3F93C00A03639 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2C73DE027D3F93F00A03639;
+			remoteInfo = "Parallel Clustering (macOS)";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D2B9158127D56647004974FE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		D2B9158227D5994F004974FE /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		D2C73DD427D3F93D00A03639 /* Parallel_ClusteringApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parallel_ClusteringApp.swift; sourceTree = "<group>"; };
 		D2C73DD527D3F93D00A03639 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D2C73DD627D3F93F00A03639 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D2C73DDB27D3F93F00A03639 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Parallel Clustering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2C73DE127D3F93F00A03639 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Parallel Clustering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C73DE327D3F93F00A03639 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		D2C73DE827D3F93F00A03639 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C73DEC27D3F93F00A03639 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		D2C73DEE27D3F93F00A03639 /* Tests_iOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOSLaunchTests.swift; sourceTree = "<group>"; };
-		D2C73DF427D3F93F00A03639 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C73DF827D3F93F00A03639 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		D2C73DFA27D3F93F00A03639 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		D2C73E1227D3F9FF00A03639 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		D2C73E1527D3FA3400A03639 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		D2C73E9627D4194D00A03639 /* Tests_ClusterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_ClusterModel.swift; sourceTree = "<group>"; };
+		D2C73E9B27D41A3500A03639 /* ClusterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterModel.swift; sourceTree = "<group>"; };
+		D2C73EA827D42A3300A03639 /* Benchmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benchmark.swift; sourceTree = "<group>"; };
+		D2C73EAE27D4308500A03639 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		D2EEF20527D7D5CF0092B375 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Parallel Clustering.app"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Parallel Clustering.app"; sourceTree = "<absolute>"; };
+		D2EEF20627D7D5CF0092B375 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Parallel Clustering.app"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Parallel Clustering.app"; sourceTree = "<absolute>"; };
+		D2EEF20727D7D5CF0092B375 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests iOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Tests iOS.xctest"; sourceTree = "<absolute>"; };
+		D2EEF20827D7D5CF0092B375 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests macOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Tests macOS.xctest"; sourceTree = "<absolute>"; };
+		D2EEF20927D7D5CF0092B375 /* Model Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Model Tests.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Model Tests.xctest"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,40 +116,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2C73E8A27D418B800A03639 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		D2C73DCE27D3F93C00A03639 = {
 			isa = PBXGroup;
 			children = (
+				D2C73EAE27D4308500A03639 /* README.md */,
+				D2B9158127D56647004974FE /* .gitignore */,
 				D2C73DD327D3F93D00A03639 /* Shared */,
 				D2C73DE227D3F93F00A03639 /* macOS */,
 				D2C73DEB27D3F93F00A03639 /* Tests iOS */,
 				D2C73DF727D3F93F00A03639 /* Tests macOS */,
-				D2C73DDC27D3F93F00A03639 /* Products */,
+				D2C73E8E27D418B800A03639 /* Model Tests */,
 			);
 			sourceTree = "<group>";
 		};
 		D2C73DD327D3F93D00A03639 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D2C73EA727D429FC00A03639 /* Helpers */,
 				D2C73E1127D3F9BC00A03639 /* Views */,
 				D2C73E1027D3F9B400A03639 /* Models */,
 				D2C73DD427D3F93D00A03639 /* Parallel_ClusteringApp.swift */,
 				D2C73DD627D3F93F00A03639 /* Assets.xcassets */,
 			);
 			path = Shared;
-			sourceTree = "<group>";
-		};
-		D2C73DDC27D3F93F00A03639 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D2C73DDB27D3F93F00A03639 /* Parallel Clustering.app */,
-				D2C73DE127D3F93F00A03639 /* Parallel Clustering.app */,
-				D2C73DE827D3F93F00A03639 /* Tests iOS.xctest */,
-				D2C73DF427D3F93F00A03639 /* Tests macOS.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D2C73DE227D3F93F00A03639 /* macOS */ = {
@@ -152,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				D2C73E1527D3FA3400A03639 /* ModelData.swift */,
+				D2C73E9B27D41A3500A03639 /* ClusterModel.swift */,
+				D2B9158227D5994F004974FE /* TestData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,6 +194,22 @@
 				D2C73E1227D3F9FF00A03639 /* LogView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D2C73E8E27D418B800A03639 /* Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D2C73E9627D4194D00A03639 /* Tests_ClusterModel.swift */,
+			);
+			path = "Model Tests";
+			sourceTree = "<group>";
+		};
+		D2C73EA727D429FC00A03639 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D2C73EA827D42A3300A03639 /* Benchmark.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,8 +228,10 @@
 			dependencies = (
 			);
 			name = "Parallel Clustering (iOS)";
+			packageProductDependencies = (
+			);
 			productName = "Parallel Clustering (iOS)";
-			productReference = D2C73DDB27D3F93F00A03639 /* Parallel Clustering.app */;
+			productReference = D2EEF20527D7D5CF0092B375 /* Parallel Clustering.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D2C73DE027D3F93F00A03639 /* Parallel Clustering (macOS) */ = {
@@ -198,8 +247,10 @@
 			dependencies = (
 			);
 			name = "Parallel Clustering (macOS)";
+			packageProductDependencies = (
+			);
 			productName = "Parallel Clustering (macOS)";
-			productReference = D2C73DE127D3F93F00A03639 /* Parallel Clustering.app */;
+			productReference = D2EEF20627D7D5CF0092B375 /* Parallel Clustering.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D2C73DE727D3F93F00A03639 /* Tests iOS */ = {
@@ -217,7 +268,7 @@
 			);
 			name = "Tests iOS";
 			productName = "Tests iOS";
-			productReference = D2C73DE827D3F93F00A03639 /* Tests iOS.xctest */;
+			productReference = D2EEF20727D7D5CF0092B375 /* Tests iOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		D2C73DF327D3F93F00A03639 /* Tests macOS */ = {
@@ -235,8 +286,26 @@
 			);
 			name = "Tests macOS";
 			productName = "Tests macOS";
-			productReference = D2C73DF427D3F93F00A03639 /* Tests macOS.xctest */;
+			productReference = D2EEF20827D7D5CF0092B375 /* Tests macOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		D2C73E8C27D418B800A03639 /* Model Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2C73E9527D418B800A03639 /* Build configuration list for PBXNativeTarget "Model Tests" */;
+			buildPhases = (
+				D2C73E8927D418B800A03639 /* Sources */,
+				D2C73E8A27D418B800A03639 /* Frameworks */,
+				D2C73E8B27D418B800A03639 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2C73E9227D418B800A03639 /* PBXTargetDependency */,
+			);
+			name = "Model Tests";
+			productName = "Model Tests";
+			productReference = D2EEF20927D7D5CF0092B375 /* Model Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -262,6 +331,10 @@
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = D2C73DE027D3F93F00A03639;
 					};
+					D2C73E8C27D418B800A03639 = {
+						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
+					};
 				};
 			};
 			buildConfigurationList = D2C73DD227D3F93C00A03639 /* Build configuration list for PBXProject "Parallel Clustering" */;
@@ -273,7 +346,9 @@
 				Base,
 			);
 			mainGroup = D2C73DCE27D3F93C00A03639;
-			productRefGroup = D2C73DDC27D3F93F00A03639 /* Products */;
+			packageReferences = (
+			);
+			productRefGroup = D2C73DCE27D3F93C00A03639;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -281,6 +356,7 @@
 				D2C73DE027D3F93F00A03639 /* Parallel Clustering (macOS) */,
 				D2C73DE727D3F93F00A03639 /* Tests iOS */,
 				D2C73DF327D3F93F00A03639 /* Tests macOS */,
+				D2C73E8C27D418B800A03639 /* Model Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -316,6 +392,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2C73E8B27D418B800A03639 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -323,9 +406,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C73E9C27D41A3500A03639 /* ClusterModel.swift in Sources */,
+				D2C73EA927D42A3300A03639 /* Benchmark.swift in Sources */,
 				D2C73DFE27D3F93F00A03639 /* ContentView.swift in Sources */,
 				D2C73E1627D3FA3400A03639 /* ModelData.swift in Sources */,
 				D2C73E1327D3F9FF00A03639 /* LogView.swift in Sources */,
+				D2B9158327D5994F004974FE /* TestData.swift in Sources */,
 				D2C73DFC27D3F93F00A03639 /* Parallel_ClusteringApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,9 +420,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C73E9D27D41A3500A03639 /* ClusterModel.swift in Sources */,
+				D2C73EAA27D42A3300A03639 /* Benchmark.swift in Sources */,
 				D2C73DFF27D3F93F00A03639 /* ContentView.swift in Sources */,
 				D2C73E1727D3FA3400A03639 /* ModelData.swift in Sources */,
 				D2C73E1427D3F9FF00A03639 /* LogView.swift in Sources */,
+				D2B9158427D5994F004974FE /* TestData.swift in Sources */,
 				D2C73DFD27D3F93F00A03639 /* Parallel_ClusteringApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,7 +434,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C73E9E27D41A3500A03639 /* ClusterModel.swift in Sources */,
+				D2C73EAB27D42A3300A03639 /* Benchmark.swift in Sources */,
 				D2C73DEF27D3F93F00A03639 /* Tests_iOSLaunchTests.swift in Sources */,
+				D2B9158527D5994F004974FE /* TestData.swift in Sources */,
 				D2C73DED27D3F93F00A03639 /* Tests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,8 +446,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C73E9F27D41A3500A03639 /* ClusterModel.swift in Sources */,
+				D2C73EAC27D42A3300A03639 /* Benchmark.swift in Sources */,
 				D2C73DFB27D3F93F00A03639 /* Tests_macOSLaunchTests.swift in Sources */,
+				D2B9158627D5994F004974FE /* TestData.swift in Sources */,
 				D2C73DF927D3F93F00A03639 /* Tests_macOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2C73E8927D418B800A03639 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2C73EA027D41A3500A03639 /* ClusterModel.swift in Sources */,
+				D2C73EAD27D42A3300A03639 /* Benchmark.swift in Sources */,
+				D2C73E9727D4194D00A03639 /* Tests_ClusterModel.swift in Sources */,
+				D2B9158727D5994F004974FE /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +477,11 @@
 			isa = PBXTargetDependency;
 			target = D2C73DE027D3F93F00A03639 /* Parallel Clustering (macOS) */;
 			targetProxy = D2C73DF527D3F93F00A03639 /* PBXContainerItemProxy */;
+		};
+		D2C73E9227D418B800A03639 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2C73DE027D3F93F00A03639 /* Parallel Clustering (macOS) */;
+			targetProxy = D2C73E9127D418B800A03639 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -511,6 +622,7 @@
 				PRODUCT_NAME = "Parallel Clustering";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -541,6 +653,7 @@
 				PRODUCT_NAME = "Parallel Clustering";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -571,6 +684,7 @@
 				PRODUCT_NAME = "Parallel Clustering";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -682,6 +796,54 @@
 			};
 			name = Release;
 		};
+		D2C73E9327D418B800A03639 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MMT58DHXG7;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shawnlong.Model-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D2C73E9427D418B800A03639 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MMT58DHXG7;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shawnlong.Model-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -726,6 +888,15 @@
 			buildConfigurations = (
 				D2C73E0E27D3F93F00A03639 /* Debug */,
 				D2C73E0F27D3F93F00A03639 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2C73E9527D418B800A03639 /* Build configuration list for PBXNativeTarget "Model Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2C73E9327D418B800A03639 /* Debug */,
+				D2C73E9427D418B800A03639 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
