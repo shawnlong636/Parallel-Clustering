@@ -14,9 +14,23 @@ func printBenchmark(title: String, operation: () -> ()) {
     print("\(title)\nTime elapsed: \(timeElapsed) seconds")
 }
 
+func printBenchmark(title: String, operation: () async -> ()) async {
+    let startTime = CFAbsoluteTimeGetCurrent()
+    await operation()
+    let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+    print("\(title)\nTime elapsed: \(timeElapsed) seconds")
+}
+
 func Benchmark(title: String, operation: () -> ()) -> Double {
     let startTime = CFAbsoluteTimeGetCurrent()
     operation()
+    let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+    return Double(timeElapsed)
+}
+
+func Benchmark(title: String, operation: () async -> ()) async -> Double {
+    let startTime = CFAbsoluteTimeGetCurrent()
+    await operation()
     let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
     return Double(timeElapsed)
 }

@@ -84,7 +84,7 @@ class Tests_ClusterModel: XCTestCase {
         let test = TestData_SmallCluster()
         let model = try ClusterModel(data: test.data, dimmension: test.dimmension)
         try model.cluster(count: test.clusterCount, initialCentroids: test.centroids)
-        XCTAssertEqual(model.clusters, test.clusters)
+        XCTAssertEqual(model.clusters, test.clusters!)
     }
 
     func testLargeCluster() throws {
@@ -119,18 +119,18 @@ class Tests_ClusterModel: XCTestCase {
         XCTAssertEqual(model.clusters, test.clusters)
     }
 
-    func testPerformanceExample() throws {
+    func testPerformanceExample() async throws {
 //        // This is an example of a performance test case.
 //        self.measure {
 //            // Put the code you want to measure the time of here.
 //        }
         print("\n\n\n")
 
-        let sample = TestData_MaxClusters()
+        let sample = TestData_LargeCluster()
         let model = try ClusterModel(data: sample.data, dimmension: sample.dimmension)
 
 
-        printBenchmark(title: "Sample Cluster | \(sample.clusterCount) Clusters | \(sample.size) Points | \(sample.dimmension)-Dimmensional Space") {
+        printBenchmark(title: "Sequential Cluster | \(sample.clusterCount) Clusters | \(sample.size) Points | \(sample.dimmension)-Dimmensional Space") {
             do {
                 try model.cluster(count: sample.clusterCount, initialCentroids: sample.centroids)
             }
@@ -139,6 +139,22 @@ class Tests_ClusterModel: XCTestCase {
             }
         }
 
+        let parallelModel = try ParallelClusterModel(data: sample.data, dimmension: sample.dimmension)
+
+        printBenchmark(title: "Parallel Cluster | \(sample.clusterCount) Clusters | \(sample.size) Points | \(sample.dimmension)-Dimmensional Space") {
+            do {
+                try parallelModel.cluster(count: sample.clusterCount, initialCentroids: sample.centroids)
+            }
+            catch {
+                print("Error")
+            }
+        }
+
         print("\n\n\n")
+    }
+
+    func testWhatever() {
+
+        
     }
 }

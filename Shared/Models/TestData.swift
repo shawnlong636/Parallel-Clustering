@@ -107,7 +107,7 @@ final class TestData_LargeCluster: TestData {
     var clusters: [Int]?
 
     init() {
-        let pointsPerCluster: Int = 10_000
+        let pointsPerCluster: Int = 20_000
         self.size = self.clusterCount * pointsPerCluster
 
         // Points near (-1.5, -1, -3.5)

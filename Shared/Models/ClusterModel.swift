@@ -12,6 +12,7 @@ enum ClusterModelError: Error {
     case PointOutOfBounds(index: Int)
     case CentroidOutOfBounds(index: Int)
     case InvalidArgument(Details: String)
+    case AsyncRequired
 }
 
 class ClusterModel: CustomStringConvertible {
@@ -125,7 +126,6 @@ class ClusterModel: CustomStringConvertible {
                     self.centroids[centroidIndex * dimmension + offset] = self.points[pointIndex * dimmension + offset]
                 }
             }
-//            print("Initial Centroids: \(self.centroids)")
         }
 
     }
@@ -136,31 +136,31 @@ class ClusterModel: CustomStringConvertible {
     /// - Parameter clusterCount: The number of clusters being used for the current clustering
     func assignClusters(clusterCount: Int) throws {
 
-        // Initialize m empty arrays for each cluster, where m is the dimmension of the ClusterModel
-        self.sets = []
-        for index in 0 ..< clusterCount {
-            self.sets.append([])
-            for _ in 0 ..< self.dimmension {
-                self.sets[index].append([])
-            }
-        }
+//        // Initialize m empty arrays for each cluster, where m is the dimmension of the ClusterModel
+//        self.sets = []
+//        for index in 0 ..< clusterCount {
+//            self.sets.append([])
+//            for _ in 0 ..< self.dimmension {
+//                self.sets[index].append([])
+//            }
+//        }
 
-        for pointIndex in 0..<pointCount {
+        for pointIndex in 0 ..< pointCount {
             var min_dist = Double.infinity
 
-            for centroidIndex in 0..<clusterCount {
+            for centroidIndex in 0 ..< clusterCount {
                 let cur_dist = try DistanceSquared(pointIndex: pointIndex, centroidIndex: centroidIndex)
                 if cur_dist < min_dist {
                     min_dist = cur_dist
                     self.clusters[pointIndex] = centroidIndex
                 }
             }
-            let closestCentroid = self.clusters[pointIndex]
-
-            for offset in 0 ..< self.dimmension {
-                self.sets[closestCentroid][offset].append(
-                    self.points[pointIndex * self.dimmension + offset])
-            }
+//            let closestCentroid = self.clusters[pointIndex]
+//
+//            for offset in 0 ..< self.dimmension {
+//                self.sets[closestCentroid][offset].append(
+//                    self.points[pointIndex * self.dimmension + offset])
+//            }
         }
     }
 
@@ -174,6 +174,35 @@ class ClusterModel: CustomStringConvertible {
         }
     }
 
+    func createSets(clusterCount: Int) {
+
+        // Initialize empty array for each cluster
+        self.sets = []
+        for _ in 0 ..< clusterCount {
+            self.sets.append([])
+        }
+
+        // Create sets by filtering clusters array
+        for clusterIndex in 0 ..< clusterCount {
+
+            // Get List of pointInidices from clusters where the cluster is the current cluster
+              let pointIndices = self.clusters.indices.filter { self.clusters[$0] == clusterIndex }
+
+            // Initialize each componenent array for the given cluster
+            for _ in 0 ..< self.dimmension {
+                self.sets[clusterIndex].append(Array<Double>(repeating: 0.0, count: pointIndices.count))
+            }
+
+            for offset in 0 ..< self.dimmension {
+                for (setIndex, pointIndex) in pointIndices.enumerated() {
+                    self.sets[clusterIndex][offset][setIndex] = self.points[pointIndex * self.dimmension + offset] // TODO: Fix index out of range error
+                }
+            }
+
+        }
+
+    }
+
     func cluster(count: Int, initialCentroids: [Double]? = nil) throws {
 
         // Validate Input
@@ -185,13 +214,71 @@ class ClusterModel: CustomStringConvertible {
         initializeCentroids(count: count, initialCentroids: initialCentroids)
 
         for _ in 0 ..< ProjectConstants.MAX_ITERATIONS {
+
             // Assign Data Points to the Nearest Centroid
             try assignClusters(clusterCount: count)
-//            print("Iteration \(index): \(self.clusters)")
+
+            createSets(clusterCount: count)
 
             // Update Centroid to be the Average of each Cluster
             try updateCentroids(clusterCount: count)
         }
     }
 
+}
+
+class ParallelClusterModel : ClusterModel {
+    override func assignClusters(clusterCount: Int) throws {
+
+        let groupSize = 10_000
+        var pointIndex = 0
+
+        let dispatchGroup = DispatchGroup()
+        DispatchQueue.concurrentPerform(iterations: self.clusters.count / groupSize) { (groupIndex) in
+
+            dispatchGroup.enter()
+            for subIndex in 0 ..< groupSize {
+                pointIndex = groupIndex * groupSize + subIndex
+
+                var min_dist = Double.infinity
+
+                for centroidIndex in 0 ..< clusterCount {
+                    do {
+                        let cur_dist = try self.DistanceSquared(pointIndex: pointIndex, centroidIndex: centroidIndex)
+                        if cur_dist < min_dist {
+                            min_dist = cur_dist
+                            self.clusters[pointIndex] = centroidIndex
+                        }
+                    } catch {
+                        print("Failed: \(error)")
+                    }
+                }
+
+            }
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.notify(queue: DispatchQueue.main) { }
+        dispatchGroup.wait()
+
+
+        // Process the last group (size <= 1000)
+        let start = (self.clusters.count / groupSize) * groupSize
+
+        for pointIndex in start ..< self.clusters.count {
+            var min_dist = Double.infinity
+
+            for centroidIndex in 0 ..< clusterCount {
+                do {
+                    let cur_dist = try self.DistanceSquared(pointIndex: pointIndex, centroidIndex: centroidIndex)
+                    if cur_dist < min_dist {
+                        min_dist = cur_dist
+                        self.clusters[pointIndex] = centroidIndex
+                    }
+                } catch {
+                    print("Failed: \(error)")
+                }
+            }
+        }
+    }
 }
