@@ -136,15 +136,6 @@ class ClusterModel: CustomStringConvertible {
     /// - Parameter clusterCount: The number of clusters being used for the current clustering
     func assignClusters(clusterCount: Int) throws {
 
-//        // Initialize m empty arrays for each cluster, where m is the dimmension of the ClusterModel
-//        self.sets = []
-//        for index in 0 ..< clusterCount {
-//            self.sets.append([])
-//            for _ in 0 ..< self.dimmension {
-//                self.sets[index].append([])
-//            }
-//        }
-
         for pointIndex in 0 ..< pointCount {
             var min_dist = Double.infinity
 
@@ -155,12 +146,6 @@ class ClusterModel: CustomStringConvertible {
                     self.clusters[pointIndex] = centroidIndex
                 }
             }
-//            let closestCentroid = self.clusters[pointIndex]
-//
-//            for offset in 0 ..< self.dimmension {
-//                self.sets[closestCentroid][offset].append(
-//                    self.points[pointIndex * self.dimmension + offset])
-//            }
         }
     }
 
@@ -198,9 +183,7 @@ class ClusterModel: CustomStringConvertible {
                     self.sets[clusterIndex][offset][setIndex] = self.points[pointIndex * self.dimmension + offset] // TODO: Fix index out of range error
                 }
             }
-
         }
-
     }
 
     func cluster(count: Int, initialCentroids: [Double]? = nil) throws {
@@ -215,6 +198,7 @@ class ClusterModel: CustomStringConvertible {
 
         for _ in 0 ..< ProjectConstants.MAX_ITERATIONS {
 
+
             // Assign Data Points to the Nearest Centroid
             try assignClusters(clusterCount: count)
 
@@ -225,60 +209,4 @@ class ClusterModel: CustomStringConvertible {
         }
     }
 
-}
-
-class ParallelClusterModel : ClusterModel {
-    override func assignClusters(clusterCount: Int) throws {
-
-        let groupSize = 10_000
-        var pointIndex = 0
-
-        let dispatchGroup = DispatchGroup()
-        DispatchQueue.concurrentPerform(iterations: self.clusters.count / groupSize) { (groupIndex) in
-
-            dispatchGroup.enter()
-            for subIndex in 0 ..< groupSize {
-                pointIndex = groupIndex * groupSize + subIndex
-
-                var min_dist = Double.infinity
-
-                for centroidIndex in 0 ..< clusterCount {
-                    do {
-                        let cur_dist = try self.DistanceSquared(pointIndex: pointIndex, centroidIndex: centroidIndex)
-                        if cur_dist < min_dist {
-                            min_dist = cur_dist
-                            self.clusters[pointIndex] = centroidIndex
-                        }
-                    } catch {
-                        print("Failed: \(error)")
-                    }
-                }
-
-            }
-            dispatchGroup.leave()
-        }
-
-        dispatchGroup.notify(queue: DispatchQueue.main) { }
-        dispatchGroup.wait()
-
-
-        // Process the last group (size <= 1000)
-        let start = (self.clusters.count / groupSize) * groupSize
-
-        for pointIndex in start ..< self.clusters.count {
-            var min_dist = Double.infinity
-
-            for centroidIndex in 0 ..< clusterCount {
-                do {
-                    let cur_dist = try self.DistanceSquared(pointIndex: pointIndex, centroidIndex: centroidIndex)
-                    if cur_dist < min_dist {
-                        min_dist = cur_dist
-                        self.clusters[pointIndex] = centroidIndex
-                    }
-                } catch {
-                    print("Failed: \(error)")
-                }
-            }
-        }
-    }
 }
