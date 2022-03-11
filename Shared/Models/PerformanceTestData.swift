@@ -16,7 +16,7 @@ class PerformanceTest {
 
     var dimmension: Int
     var size: Int
-    var data: [Double]
+    var data: ContiguousArray<Double>
 
     init(_ data: DataType) {
         switch data {
@@ -25,7 +25,7 @@ class PerformanceTest {
 
             self.size = width * height
 
-            self.data = Array<Double>(repeating: 0.0, count: self.dimmension * self.size)
+            self.data = ContiguousArray<Double>(repeating: 0.0, count: self.dimmension * self.size)
 
             for pointIndex in 0 ..< self.size {
                 for offset in 0 ..< self.dimmension {
@@ -36,7 +36,7 @@ class PerformanceTest {
         case .DiscretePoints(let dimmension, let size):
             self.dimmension = dimmension
             self.size = size
-            self.data = Array<Double>(repeating: 0.0, count: self.dimmension * self.size)
+            self.data = ContiguousArray<Double>(repeating: 0.0, count: self.dimmension * self.size)
 
             for pointIndex in 0 ..< self.size {
                 for offset in 0 ..< self.dimmension {

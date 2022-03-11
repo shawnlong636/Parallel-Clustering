@@ -70,11 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D29CB8E427DB3442009F00D5 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Parallel Clustering.app"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Parallel Clustering.app"; sourceTree = "<absolute>"; };
-		D29CB8E527DB3442009F00D5 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Parallel Clustering.app"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Parallel Clustering.app"; sourceTree = "<absolute>"; };
-		D29CB8E627DB3442009F00D5 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests iOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Tests iOS.xctest"; sourceTree = "<absolute>"; };
-		D29CB8E727DB3442009F00D5 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests macOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Tests macOS.xctest"; sourceTree = "<absolute>"; };
-		D29CB8E827DB3442009F00D5 /* Model Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Model Tests.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Model Tests.xctest"; sourceTree = "<absolute>"; };
 		D29CB8E927DB3568009F00D5 /* Tests_ClusterModelPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_ClusterModelPerformance.swift; sourceTree = "<group>"; };
 		D29CB8EB27DB363C009F00D5 /* PerformanceTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTestData.swift; sourceTree = "<group>"; };
 		D2B9158127D56647004974FE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -93,6 +88,11 @@
 		D2C73E9B27D41A3500A03639 /* ClusterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterModel.swift; sourceTree = "<group>"; };
 		D2C73EA827D42A3300A03639 /* Benchmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benchmark.swift; sourceTree = "<group>"; };
 		D2C73EAE27D4308500A03639 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		D2EBC77227DB64BB00ADA251 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Parallel Clustering.app"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Parallel Clustering.app"; sourceTree = "<absolute>"; };
+		D2EBC77327DB64BB00ADA251 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Parallel Clustering.app"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Parallel Clustering.app"; sourceTree = "<absolute>"; };
+		D2EBC77427DB64BB00ADA251 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests iOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Tests iOS.xctest"; sourceTree = "<absolute>"; };
+		D2EBC77527DB64BB00ADA251 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests macOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Tests macOS.xctest"; sourceTree = "<absolute>"; };
+		D2EBC77627DB64BB00ADA251 /* Model Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Model Tests.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Model Tests.xctest"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +241,7 @@
 			packageProductDependencies = (
 			);
 			productName = "Parallel Clustering (iOS)";
-			productReference = D29CB8E427DB3442009F00D5 /* Parallel Clustering.app */;
+			productReference = D2EBC77227DB64BB00ADA251 /* Parallel Clustering.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D2C73DE027D3F93F00A03639 /* Parallel Clustering (macOS) */ = {
@@ -260,7 +260,7 @@
 			packageProductDependencies = (
 			);
 			productName = "Parallel Clustering (macOS)";
-			productReference = D29CB8E527DB3442009F00D5 /* Parallel Clustering.app */;
+			productReference = D2EBC77327DB64BB00ADA251 /* Parallel Clustering.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D2C73DE727D3F93F00A03639 /* Tests iOS */ = {
@@ -278,7 +278,7 @@
 			);
 			name = "Tests iOS";
 			productName = "Tests iOS";
-			productReference = D29CB8E627DB3442009F00D5 /* Tests iOS.xctest */;
+			productReference = D2EBC77427DB64BB00ADA251 /* Tests iOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		D2C73DF327D3F93F00A03639 /* Tests macOS */ = {
@@ -296,7 +296,7 @@
 			);
 			name = "Tests macOS";
 			productName = "Tests macOS";
-			productReference = D29CB8E727DB3442009F00D5 /* Tests macOS.xctest */;
+			productReference = D2EBC77527DB64BB00ADA251 /* Tests macOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		D2C73E8C27D418B800A03639 /* Model Tests */ = {
@@ -314,7 +314,7 @@
 			);
 			name = "Model Tests";
 			productName = "Model Tests";
-			productReference = D29CB8E827DB3442009F00D5 /* Model Tests.xctest */;
+			productReference = D2EBC77627DB64BB00ADA251 /* Model Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */

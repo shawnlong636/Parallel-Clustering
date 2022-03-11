@@ -31,7 +31,7 @@ class Tests_ClusterModelAccuracy: XCTestCase {
         var dist = 0.0
         for centroidIndex in 0..<model.centroids.count {
             for pointIndex in 0..<model.points.count {
-                dist = try model.DistanceSquared(
+                dist = try model.Distance(
                     pointIndex: pointIndex,
                     centroidIndex: centroidIndex)
 
@@ -62,7 +62,7 @@ class Tests_ClusterModelAccuracy: XCTestCase {
         for centroidIndex in 0 ..< model.centroids.count / model.dimmension {
             for pointIndex in 0 ..< model.points.count / model.dimmension {
 
-                dist = try model.DistanceSquared(
+                dist = try model.Distance(
                     pointIndex: pointIndex,
                     centroidIndex: centroidIndex)
 

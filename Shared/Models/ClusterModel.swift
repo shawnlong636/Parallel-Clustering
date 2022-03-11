@@ -20,12 +20,12 @@ class ClusterModel: CustomStringConvertible {
     var pointCount: Int = 0
 
     // Contains the Raw Point Data
-    var points: [Double] = []
+    var points: ContiguousArray<Double> = ContiguousArray<Double>()
 
     // Data Structures Used During Clustering
-    var centroids: [Double] = []
+    var centroids: ContiguousArray<Double> = ContiguousArray<Double>()
     var sets: [[[Double]]] = []
-    var clusters: [Int] = []
+    var clusters: ContiguousArray<Int> = ContiguousArray<Int>()
 
     var description: String {
         return """
@@ -37,7 +37,7 @@ class ClusterModel: CustomStringConvertible {
         """
     }
 
-    init(data: [Double] = [], dimmension: Int ) throws {
+    init(data: ContiguousArray<Double> = ContiguousArray<Double>(), dimmension: Int ) throws {
 
         guard dimmension >= 1 else {
             throw ClusterModelError.InvalidInputData(Details: "Dimmension must be 1 or greater.")
@@ -47,7 +47,7 @@ class ClusterModel: CustomStringConvertible {
         try loadData(data)
     }
 
-    func loadData(_ data: [Double]) throws {
+    func loadData(_ data: ContiguousArray<Double>) throws {
         if data != [] {
             // Assert that the size of data array is multiple of the dimmensions
             guard data.count % self.dimmension == 0 else {
@@ -63,13 +63,13 @@ class ClusterModel: CustomStringConvertible {
         self.clusters = []
     }
 
-    /// This function returns the Euclidean Distance Squared given two points.
+    /// This function returns the Euclidean Distance given two points.
     ///
     /// - Parameter pointIndex: The index marking the beginning of a point in the data array.
     /// - Parameter centroidIndex: The index marking the beginning of a centroid in the centroids array.
     ///
-    /// - Returns: The Euclidean Distance Squared between the two points in n-dimmensional space
-    func DistanceSquared(pointIndex: Int, centroidIndex: Int) throws -> Double {
+    /// - Returns: The Euclidean Distance between the two points in n-dimmensional space
+    func Distance(pointIndex: Int, centroidIndex: Int) throws -> Double {
 
         // Assert Valid Point
         guard pointIndex >= 0 && pointIndex < points.count / dimmension else {
@@ -88,23 +88,23 @@ class ClusterModel: CustomStringConvertible {
                          - centroids[centroidIndex * dimmension + offset], 2)
         }
 
-        return total
+        return sqrt(total)
     }
 
     /// This function initializes the centroids array using random points.
     ///
     /// - Parameter count: The number of clusters to initialize.
-    func initializeCentroids(count: Int, initialCentroids: [Double]?) {
+    func initializeCentroids(count: Int, initialCentroids: ContiguousArray<Double>?) {
 
         // Initialize clusters to all 0
-        self.clusters = Array<Int>(repeating: 0, count: self.pointCount)
+        self.clusters = ContiguousArray<Int>(repeating: 0, count: self.pointCount)
 
         if initialCentroids != nil {
-            self.centroids = initialCentroids ?? []
+            self.centroids = initialCentroids ?? ContiguousArray<Double>()
         }  else {
             
             // Reserve size of the Centroids array
-            self.centroids = Array<Double>(repeating: 0.0,
+            self.centroids = ContiguousArray<Double>(repeating: 0.0,
                                         count: count * self.dimmension)
 
 
@@ -140,7 +140,7 @@ class ClusterModel: CustomStringConvertible {
             var min_dist = Double.infinity
 
             for centroidIndex in 0 ..< clusterCount {
-                let cur_dist = try DistanceSquared(pointIndex: pointIndex, centroidIndex: centroidIndex)
+                let cur_dist = try Distance(pointIndex: pointIndex, centroidIndex: centroidIndex)
                 if cur_dist < min_dist {
                     min_dist = cur_dist
                     self.clusters[pointIndex] = centroidIndex
@@ -186,7 +186,7 @@ class ClusterModel: CustomStringConvertible {
         }
     }
 
-    func cluster(count: Int, initialCentroids: [Double]? = nil) throws {
+    func cluster(count: Int, initialCentroids: ContiguousArray<Double>? = nil) throws {
 
         // Validate Input
         guard count >= 1 else {
