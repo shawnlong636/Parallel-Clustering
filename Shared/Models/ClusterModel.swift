@@ -88,7 +88,7 @@ class ClusterModel: CustomStringConvertible {
                          - centroids[centroidIndex * dimmension + offset], 2)
         }
 
-        return sqrt(total)
+        return total
     }
 
     /// This function initializes the centroids array using random points.
@@ -134,10 +134,14 @@ class ClusterModel: CustomStringConvertible {
     /// based on the nearest centroid.
     ///
     /// - Parameter clusterCount: The number of clusters being used for the current clustering
-    func assignClusters(clusterCount: Int) throws {
+    func assignClusters(clusterCount: Int) throws -> Bool {
+
+        var changed = false
 
         for pointIndex in 0 ..< pointCount {
             var min_dist = Double.infinity
+
+            let prevCluster = self.clusters[pointIndex]
 
             for centroidIndex in 0 ..< clusterCount {
                 let cur_dist = try Distance(pointIndex: pointIndex, centroidIndex: centroidIndex)
@@ -146,7 +150,12 @@ class ClusterModel: CustomStringConvertible {
                     self.clusters[pointIndex] = centroidIndex
                 }
             }
+
+            if prevCluster != self.clusters[pointIndex] {
+                changed = true
+            }
         }
+        return changed
     }
 
     func updateCentroids(clusterCount: Int) throws {
@@ -180,7 +189,7 @@ class ClusterModel: CustomStringConvertible {
 
             for offset in 0 ..< self.dimmension {
                 for (setIndex, pointIndex) in pointIndices.enumerated() {
-                    self.sets[clusterIndex][offset][setIndex] = self.points[pointIndex * self.dimmension + offset] // TODO: Fix index out of range error
+                    self.sets[clusterIndex][offset][setIndex] = self.points[pointIndex * self.dimmension + offset] 
                 }
             }
         }
@@ -196,16 +205,87 @@ class ClusterModel: CustomStringConvertible {
         // Initialize centroids
         initializeCentroids(count: count, initialCentroids: initialCentroids)
 
-        for _ in 0 ..< ProjectConstants.MAX_ITERATIONS {
+        var changed = true
+        var iteration = 0
+
+        while changed {
 
 
             // Assign Data Points to the Nearest Centroid
-            try assignClusters(clusterCount: count)
+            changed = try assignClusters(clusterCount: count)
 
             createSets(clusterCount: count)
 
             // Update Centroid to be the Average of each Cluster
             try updateCentroids(clusterCount: count)
+            iteration += 1
+        }
+    }
+
+}
+
+class ImprovedClusterModel: ClusterModel {
+
+    // Instead of the Naive Random points, use Scrambled Midpoints
+    override func initializeCentroids(count: Int, initialCentroids: ContiguousArray<Double>?) {
+        // Initialize clusters to all 0
+        self.clusters = ContiguousArray<Int>(repeating: 0, count: self.pointCount)
+
+        if initialCentroids != nil {
+            self.centroids = initialCentroids ?? ContiguousArray<Double>()
+        }  else {
+
+            // Reserve size of the Centroids array
+            self.centroids = ContiguousArray<Double>(repeating: 0.0,
+                                        count: count * self.dimmension)
+
+
+
+            // This array is being used for two purposes
+            // First, it will be used to store the min/max of each feature across all points
+            // Then, in a second pass, the arary will be updated to store the min vlaue and
+            // the partitions size for each feature. This can be use to extrapolate medians
+            // without actually storing all of the medians individually
+
+            var auxiliary = ContiguousArray<Double>(repeating: 0.0, count: 2 * self.dimmension)
+
+            // Pass 1: Store Min/Max Values for each dimmension
+            for pointIndex in 0 ..< self.pointCount {
+                for offset in 0 ..< self.dimmension {
+                    // Store the min value
+                    auxiliary[2 * offset] = min(auxiliary[2 * offset], self.points[self.dimmension * pointIndex + offset])
+
+                    // Store the max value
+                    auxiliary[2 * offset + 1] = max(auxiliary[2 * offset + 0], self.points[self.dimmension * pointIndex + offset])
+                }
+            }
+
+            // Pass 2: Store the partition size and min
+            var min = 0.0
+            var max = 0.0
+            for offset in 0 ..< self.dimmension {
+                min = auxiliary[2 * offset]
+                max = auxiliary[2 * offset + 1]
+
+                // Stores the size of each partition by dividing range by k
+                auxiliary[2 * offset + 1] = (max - min) / Double(count)
+            }
+
+            // Pass 3: Create the centroids from scrambled partitions
+
+            var randomPartition = 0
+            var median: Double = 0.0
+            var partSize: Double = 0.0
+            for centroidIndex in 0 ..< count {
+                for offset in 0 ..< self.dimmension {
+                    randomPartition = Int.random(in: 0 ..< count)
+                    min = auxiliary[2 * offset]
+                    partSize = auxiliary[2 * offset + 1]
+                    median = min + Double(randomPartition) * partSize
+                    self.centroids[centroidIndex * self.dimmension + offset] = median
+                }
+            }
+
         }
     }
 
