@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D29CB8EA27DB3568009F00D5 /* Tests_ClusterModelPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29CB8E927DB3568009F00D5 /* Tests_ClusterModelPerformance.swift */; };
+		D29CB8EC27DB363C009F00D5 /* PerformanceTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29CB8EB27DB363C009F00D5 /* PerformanceTestData.swift */; };
+		D29CB8ED27DB363C009F00D5 /* PerformanceTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29CB8EB27DB363C009F00D5 /* PerformanceTestData.swift */; };
+		D29CB8EE27DB363C009F00D5 /* PerformanceTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29CB8EB27DB363C009F00D5 /* PerformanceTestData.swift */; };
+		D29CB8EF27DB363C009F00D5 /* PerformanceTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29CB8EB27DB363C009F00D5 /* PerformanceTestData.swift */; };
+		D29CB8F027DB363C009F00D5 /* PerformanceTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29CB8EB27DB363C009F00D5 /* PerformanceTestData.swift */; };
 		D2B9158327D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
 		D2B9158427D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
 		D2B9158527D5994F004974FE /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B9158227D5994F004974FE /* TestData.swift */; };
@@ -26,7 +32,7 @@
 		D2C73E1427D3F9FF00A03639 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E1227D3F9FF00A03639 /* LogView.swift */; };
 		D2C73E1627D3FA3400A03639 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E1527D3FA3400A03639 /* ModelData.swift */; };
 		D2C73E1727D3FA3400A03639 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E1527D3FA3400A03639 /* ModelData.swift */; };
-		D2C73E9727D4194D00A03639 /* Tests_ClusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E9627D4194D00A03639 /* Tests_ClusterModel.swift */; };
+		D2C73E9727D4194D00A03639 /* Tests_ClusterModelAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E9627D4194D00A03639 /* Tests_ClusterModelAccuracy.swift */; };
 		D2C73E9C27D41A3500A03639 /* ClusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E9B27D41A3500A03639 /* ClusterModel.swift */; };
 		D2C73E9D27D41A3500A03639 /* ClusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E9B27D41A3500A03639 /* ClusterModel.swift */; };
 		D2C73E9E27D41A3500A03639 /* ClusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C73E9B27D41A3500A03639 /* ClusterModel.swift */; };
@@ -64,11 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D25EDC1227D7ED8500D97557 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Parallel Clustering.app"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Parallel Clustering.app"; sourceTree = "<absolute>"; };
-		D25EDC1327D7ED8500D97557 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Parallel Clustering.app"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Parallel Clustering.app"; sourceTree = "<absolute>"; };
-		D25EDC1427D7ED8500D97557 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests iOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Tests iOS.xctest"; sourceTree = "<absolute>"; };
-		D25EDC1527D7ED8500D97557 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests macOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Tests macOS.xctest"; sourceTree = "<absolute>"; };
-		D25EDC1627D7ED8500D97557 /* Model Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Model Tests.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Model Tests.xctest"; sourceTree = "<absolute>"; };
+		D29CB8E927DB3568009F00D5 /* Tests_ClusterModelPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_ClusterModelPerformance.swift; sourceTree = "<group>"; };
+		D29CB8EB27DB363C009F00D5 /* PerformanceTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTestData.swift; sourceTree = "<group>"; };
 		D2B9158127D56647004974FE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D2B9158227D5994F004974FE /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		D2C73DD427D3F93D00A03639 /* Parallel_ClusteringApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parallel_ClusteringApp.swift; sourceTree = "<group>"; };
@@ -81,10 +84,15 @@
 		D2C73DFA27D3F93F00A03639 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		D2C73E1227D3F9FF00A03639 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		D2C73E1527D3FA3400A03639 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
-		D2C73E9627D4194D00A03639 /* Tests_ClusterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_ClusterModel.swift; sourceTree = "<group>"; };
+		D2C73E9627D4194D00A03639 /* Tests_ClusterModelAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_ClusterModelAccuracy.swift; sourceTree = "<group>"; };
 		D2C73E9B27D41A3500A03639 /* ClusterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterModel.swift; sourceTree = "<group>"; };
 		D2C73EA827D42A3300A03639 /* Benchmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benchmark.swift; sourceTree = "<group>"; };
 		D2C73EAE27D4308500A03639 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		D2EBC77227DB64BB00ADA251 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Parallel Clustering.app"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Parallel Clustering.app"; sourceTree = "<absolute>"; };
+		D2EBC77327DB64BB00ADA251 /* Parallel Clustering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Parallel Clustering.app"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Parallel Clustering.app"; sourceTree = "<absolute>"; };
+		D2EBC77427DB64BB00ADA251 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests iOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug-iphoneos/Tests iOS.xctest"; sourceTree = "<absolute>"; };
+		D2EBC77527DB64BB00ADA251 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Tests macOS.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Tests macOS.xctest"; sourceTree = "<absolute>"; };
+		D2EBC77627DB64BB00ADA251 /* Model Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Model Tests.xctest"; path = "/Users/shawnlong/Documents/School/2022/22-Winter/CS 142/Parallel Clustering/build/Debug/Model Tests.xctest"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +191,7 @@
 				D2C73E1527D3FA3400A03639 /* ModelData.swift */,
 				D2C73E9B27D41A3500A03639 /* ClusterModel.swift */,
 				D2B9158227D5994F004974FE /* TestData.swift */,
+				D29CB8EB27DB363C009F00D5 /* PerformanceTestData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,7 +208,8 @@
 		D2C73E8E27D418B800A03639 /* Model Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D2C73E9627D4194D00A03639 /* Tests_ClusterModel.swift */,
+				D29CB8E927DB3568009F00D5 /* Tests_ClusterModelPerformance.swift */,
+				D2C73E9627D4194D00A03639 /* Tests_ClusterModelAccuracy.swift */,
 			);
 			path = "Model Tests";
 			sourceTree = "<group>";
@@ -231,7 +241,7 @@
 			packageProductDependencies = (
 			);
 			productName = "Parallel Clustering (iOS)";
-			productReference = D25EDC1227D7ED8500D97557 /* Parallel Clustering.app */;
+			productReference = D2EBC77227DB64BB00ADA251 /* Parallel Clustering.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D2C73DE027D3F93F00A03639 /* Parallel Clustering (macOS) */ = {
@@ -250,7 +260,7 @@
 			packageProductDependencies = (
 			);
 			productName = "Parallel Clustering (macOS)";
-			productReference = D25EDC1327D7ED8500D97557 /* Parallel Clustering.app */;
+			productReference = D2EBC77327DB64BB00ADA251 /* Parallel Clustering.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D2C73DE727D3F93F00A03639 /* Tests iOS */ = {
@@ -268,7 +278,7 @@
 			);
 			name = "Tests iOS";
 			productName = "Tests iOS";
-			productReference = D25EDC1427D7ED8500D97557 /* Tests iOS.xctest */;
+			productReference = D2EBC77427DB64BB00ADA251 /* Tests iOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		D2C73DF327D3F93F00A03639 /* Tests macOS */ = {
@@ -286,7 +296,7 @@
 			);
 			name = "Tests macOS";
 			productName = "Tests macOS";
-			productReference = D25EDC1527D7ED8500D97557 /* Tests macOS.xctest */;
+			productReference = D2EBC77527DB64BB00ADA251 /* Tests macOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		D2C73E8C27D418B800A03639 /* Model Tests */ = {
@@ -304,7 +314,7 @@
 			);
 			name = "Model Tests";
 			productName = "Model Tests";
-			productReference = D25EDC1627D7ED8500D97557 /* Model Tests.xctest */;
+			productReference = D2EBC77627DB64BB00ADA251 /* Model Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -406,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D29CB8EC27DB363C009F00D5 /* PerformanceTestData.swift in Sources */,
 				D2C73E9C27D41A3500A03639 /* ClusterModel.swift in Sources */,
 				D2C73EA927D42A3300A03639 /* Benchmark.swift in Sources */,
 				D2C73DFE27D3F93F00A03639 /* ContentView.swift in Sources */,
@@ -420,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D29CB8ED27DB363C009F00D5 /* PerformanceTestData.swift in Sources */,
 				D2C73E9D27D41A3500A03639 /* ClusterModel.swift in Sources */,
 				D2C73EAA27D42A3300A03639 /* Benchmark.swift in Sources */,
 				D2C73DFF27D3F93F00A03639 /* ContentView.swift in Sources */,
@@ -438,6 +450,7 @@
 				D2C73EAB27D42A3300A03639 /* Benchmark.swift in Sources */,
 				D2C73DEF27D3F93F00A03639 /* Tests_iOSLaunchTests.swift in Sources */,
 				D2B9158527D5994F004974FE /* TestData.swift in Sources */,
+				D29CB8EE27DB363C009F00D5 /* PerformanceTestData.swift in Sources */,
 				D2C73DED27D3F93F00A03639 /* Tests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +463,7 @@
 				D2C73EAC27D42A3300A03639 /* Benchmark.swift in Sources */,
 				D2C73DFB27D3F93F00A03639 /* Tests_macOSLaunchTests.swift in Sources */,
 				D2B9158627D5994F004974FE /* TestData.swift in Sources */,
+				D29CB8EF27DB363C009F00D5 /* PerformanceTestData.swift in Sources */,
 				D2C73DF927D3F93F00A03639 /* Tests_macOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,7 +474,9 @@
 			files = (
 				D2C73EA027D41A3500A03639 /* ClusterModel.swift in Sources */,
 				D2C73EAD27D42A3300A03639 /* Benchmark.swift in Sources */,
-				D2C73E9727D4194D00A03639 /* Tests_ClusterModel.swift in Sources */,
+				D29CB8EA27DB3568009F00D5 /* Tests_ClusterModelPerformance.swift in Sources */,
+				D2C73E9727D4194D00A03639 /* Tests_ClusterModelAccuracy.swift in Sources */,
+				D29CB8F027DB363C009F00D5 /* PerformanceTestData.swift in Sources */,
 				D2B9158727D5994F004974FE /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

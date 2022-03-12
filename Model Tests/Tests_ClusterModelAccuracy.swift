@@ -9,7 +9,7 @@ import XCTest
 @testable import Parallel_Clustering
 import SwiftUI
 
-class Tests_ClusterModel: XCTestCase {
+class Tests_ClusterModelAccuracy: XCTestCase {
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -31,7 +31,7 @@ class Tests_ClusterModel: XCTestCase {
         var dist = 0.0
         for centroidIndex in 0..<model.centroids.count {
             for pointIndex in 0..<model.points.count {
-                dist = try model.DistanceSquared(
+                dist = try model.Distance(
                     pointIndex: pointIndex,
                     centroidIndex: centroidIndex)
 
@@ -62,7 +62,7 @@ class Tests_ClusterModel: XCTestCase {
         for centroidIndex in 0 ..< model.centroids.count / model.dimmension {
             for pointIndex in 0 ..< model.points.count / model.dimmension {
 
-                dist = try model.DistanceSquared(
+                dist = try model.Distance(
                     pointIndex: pointIndex,
                     centroidIndex: centroidIndex)
 
@@ -83,21 +83,44 @@ class Tests_ClusterModel: XCTestCase {
     func testSmallCluster() throws {
         let test = TestData_SmallCluster()
         let model = try ClusterModel(data: test.data, dimmension: test.dimmension)
-        try model.cluster(count: test.clusterCount, initialCentroids: test.centroids)
-        XCTAssertEqual(model.clusters, test.clusters)
+        printBenchmark(title: "Small Cluster") {
+            do {
+                try model.cluster(count: test.clusterCount, initialCentroids: test.centroids)
+            } catch {
+                print("Error")
+            }
+
+        }
+        XCTAssertEqual(model.clusters, test.clusters!)
     }
 
     func testLargeCluster() throws {
         let test = TestData_LargeCluster()
         let model = try ClusterModel(data: test.data, dimmension: test.dimmension)
-        try model.cluster(count: test.clusterCount, initialCentroids: test.centroids)
+        printBenchmark(title: "Large Cluster") {
+            do {
+                try model.cluster(count: test.clusterCount, initialCentroids: test.centroids)
+            } catch {
+                print("Error")
+            }
+
+        }
         XCTAssertEqual(model.clusters, test.clusters)
     }
 
     func testHighDimmensionalCluster() throws {
         let test = TestData_HighDimmensionalCluster()
         let model = try ClusterModel(data: test.data, dimmension: test.dimmension)
-        try model.cluster(count: test.clusterCount, initialCentroids: test.centroids)
+
+        printBenchmark(title: "High Dimmensional Cluster") {
+            do {
+                try model.cluster(count: test.clusterCount, initialCentroids: test.centroids)
+            } catch {
+                print("Error")
+            }
+
+        }
+
         XCTAssertEqual(model.clusters, test.clusters)
     }
 
@@ -106,8 +129,16 @@ class Tests_ClusterModel: XCTestCase {
         let model = try ClusterModel(data: test.data, dimmension: test.dimmension)
 
         // Test 5 Times with different Initial Centroids
-        for _ in 1 ... 5 {
-            try model.cluster(count: test.clusterCount)
+        for i in 1 ... 5 {
+            printBenchmark(title: "Large Single Cluster \(i)") {
+                do {
+                    try model.cluster(count: test.clusterCount)
+                } catch {
+                    print("Error")
+                }
+
+            }
+//            try model.cluster(count: test.clusterCount)
             XCTAssertEqual(test.clusters, model.clusters)
         }
     }
@@ -115,22 +146,22 @@ class Tests_ClusterModel: XCTestCase {
     func testEachPointIsCentroid() throws {
         let test = TestData_MaxClusters()
         let model = try ClusterModel(data: test.data, dimmension: test.dimmension)
-        try model.cluster(count: test.clusterCount, initialCentroids: test.centroids)
+        printBenchmark(title: "Max Clusters") {
+            do {
+                try model.cluster(count: test.clusterCount, initialCentroids: test.centroids)
+            } catch {
+                print("Error")
+            }
+
+        }
         XCTAssertEqual(model.clusters, test.clusters)
     }
 
-    func testPerformanceExample() throws {
-//        // This is an example of a performance test case.
-//        self.measure {
-//            // Put the code you want to measure the time of here.
-//        }
-        print("\n\n\n")
-
-        let sample = TestData_MaxClusters()
+    func testPerformanceExample() async throws {
+        let sample = TestData_LargeCluster()
         let model = try ClusterModel(data: sample.data, dimmension: sample.dimmension)
 
-
-        printBenchmark(title: "Sample Cluster | \(sample.clusterCount) Clusters | \(sample.size) Points | \(sample.dimmension)-Dimmensional Space") {
+        self.measure {
             do {
                 try model.cluster(count: sample.clusterCount, initialCentroids: sample.centroids)
             }
@@ -138,7 +169,5 @@ class Tests_ClusterModel: XCTestCase {
                 print("Error")
             }
         }
-
-        print("\n\n\n")
     }
 }

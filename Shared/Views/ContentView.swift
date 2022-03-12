@@ -13,12 +13,12 @@ struct ContentView: View {
         VStack(alignment: .leading) {
             Text("K Way Means")
                 .font(.title).bold()
-//            Image("SampleBrain")
-//                .resizable()
-//                .scaledToFit()
-            LogView()
+            Image("SampleBrain")
+                .resizable()
+                .scaledToFit()
+//            LogView()
             HStack(alignment: .center) {
-                Text("Select an image: ")
+                Text("Segment the Image: ")
                 Button("Button") {
                     modelData.logs.append("Adding line of text")
                     }
